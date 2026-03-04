@@ -1,8 +1,82 @@
 @import url("https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap");
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-devanagari: "Tiro Devanagari Hindi", serif;
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "DM Sans", sans-serif;
+
+  --color-saffron-300: #ffd580;
+  --color-saffron-400: #ffbb33;
+  --color-saffron-500: #ff9500;
+  --color-saffron-600: #e07b00;
+
+  --color-crimson-400: #e05555;
+  --color-crimson-500: #c0392b;
+  --color-crimson-600: #a93226;
+
+  --color-gold-300: #f5d67a;
+  --color-gold-400: #e8c547;
+  --color-gold-500: #d4a017;
+  --color-gold-600: #b8860b;
+
+  --animate-pulse-ring: pulseRing 0.4s ease-out;
+  --animate-counter-pop: counterPop 0.15s ease-out;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-glow: glow 3s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.5s linear infinite;
+
+  @keyframes pulseRing {
+    0% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1.3);
+      opacity: 0;
+    }
+  }
+  @keyframes counterPop {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.08);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+  @keyframes glow {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(255, 149, 0, 0.3);
+    }
+    50% {
+      box-shadow:
+        0 0 50px rgba(255, 149, 0, 0.6),
+        0 0 80px rgba(255, 149, 0, 0.2);
+    }
+  }
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+}
 
 :root {
   --saffron: #ff9500;
@@ -54,7 +128,8 @@ body {
   transform: translate(-50%, -50%);
   width: min(900px, 140vw);
   height: min(900px, 140vw);
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       circle at 50% 50%,
       rgba(255, 149, 0, 0.07) 0%,
       transparent 60%
@@ -134,7 +209,9 @@ body {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1.5px solid rgba(255, 149, 0, 0.35);
-  box-shadow: 0 0 40px rgba(255, 149, 0, 0.15), 0 0 80px rgba(255, 149, 0, 0.06),
+  box-shadow:
+    0 0 40px rgba(255, 149, 0, 0.15),
+    0 0 80px rgba(255, 149, 0, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
@@ -149,15 +226,21 @@ body {
 @keyframes btnTap {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 40px rgba(255, 149, 0, 0.15), 0 0 80px rgba(255, 149, 0, 0.06);
+    box-shadow:
+      0 0 40px rgba(255, 149, 0, 0.15),
+      0 0 80px rgba(255, 149, 0, 0.06);
   }
   50% {
     transform: scale(0.94);
-    box-shadow: 0 0 60px rgba(255, 149, 0, 0.5), 0 0 120px rgba(255, 149, 0, 0.2);
+    box-shadow:
+      0 0 60px rgba(255, 149, 0, 0.5),
+      0 0 120px rgba(255, 149, 0, 0.2);
   }
   100% {
     transform: scale(1);
-    box-shadow: 0 0 40px rgba(255, 149, 0, 0.15), 0 0 80px rgba(255, 149, 0, 0.06);
+    box-shadow:
+      0 0 40px rgba(255, 149, 0, 0.15),
+      0 0 80px rgba(255, 149, 0, 0.06);
   }
 }
 
@@ -220,7 +303,9 @@ body {
     box-shadow: 0 0 40px rgba(255, 149, 0, 0.15);
   }
   30% {
-    box-shadow: 0 0 80px rgba(255, 200, 0, 0.8), 0 0 160px rgba(255, 149, 0, 0.4);
+    box-shadow:
+      0 0 80px rgba(255, 200, 0, 0.8),
+      0 0 160px rgba(255, 149, 0, 0.4);
   }
   100% {
     box-shadow: 0 0 40px rgba(255, 149, 0, 0.15);
@@ -288,7 +373,9 @@ body {
   border-radius: 12px;
   color: #f5e8d0;
   outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
   font-family: "DM Sans", sans-serif;
 }
 
